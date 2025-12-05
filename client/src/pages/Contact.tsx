@@ -4,47 +4,98 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
+import { Clock, Globe, ChevronRight } from "lucide-react";
 
 export default function Contact() {
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+
+  const timeSlots = [
+    "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM",
+    "11:00 AM", "11:30 AM", "01:00 PM", "01:30 PM",
+    "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"
+  ];
 
   return (
     <Layout>
       <div className="container mx-auto px-6 py-[100px] max-w-[1280px]">
-        <div className="grid lg:grid-cols-12 gap-16">
-          
-          <div className="lg:col-span-5">
-            <h1 className="text-[42px] md:text-[64px] font-display font-bold text-white mb-8 leading-tight">
-              Get In Touch
-            </h1>
-            <p className="text-[#B3B3B3] text-lg mb-12">
-              Schedule a consultation with our engineering team to discuss your ASIC requirements.
-            </p>
+        <h1 className="text-[42px] md:text-[64px] font-display font-bold text-white mb-4 leading-tight text-center">
+          Get In Touch
+        </h1>
+        <p className="text-[#B3B3B3] text-lg mb-16 text-center max-w-2xl mx-auto">
+          Book a time with our engineering team to discuss your custom silicon needs or reach out directly via email.
+        </p>
 
-            <div className="bg-black border border-[#2A2A2A] rounded-[4px] p-8">
-              <h3 className="text-white font-bold mb-4">Book a Meeting</h3>
-              <Calendar
+        {/* Cal.com Style Widget Container */}
+        <div className="max-w-5xl mx-auto bg-black border border-[#2A2A2A] rounded-[8px] overflow-hidden shadow-2xl mb-24 flex flex-col md:flex-row min-h-[600px]">
+          
+          {/* Left Panel: Meeting Details */}
+          <div className="md:w-1/3 p-8 border-b md:border-b-0 md:border-r border-[#2A2A2A] bg-[#050505]">
+            <div className="mb-6">
+              <span className="text-[#6A6A6A] text-sm font-semibold uppercase tracking-wider">IntelliEdge Silicon</span>
+              <h2 className="text-2xl font-bold text-white mt-2 mb-4">Discovery Call</h2>
+              <div className="flex items-center gap-3 text-[#B3B3B3] mb-2">
+                <Clock className="w-4 h-4" />
+                <span className="text-sm">30 min</span>
+              </div>
+              <div className="flex items-center gap-3 text-[#B3B3B3]">
+                <Globe className="w-4 h-4" />
+                <span className="text-sm">Google Meet</span>
+              </div>
+            </div>
+            <p className="text-[#B3B3B3] text-sm leading-relaxed">
+              A preliminary discussion to understand your application requirements (latency, power, cost) and determine if our 130nm platform is the right fit.
+            </p>
+          </div>
+
+          {/* Middle Panel: Calendar */}
+          <div className="md:w-1/3 p-8 border-b md:border-b-0 md:border-r border-[#2A2A2A] flex flex-col items-center justify-start pt-10">
+             <h3 className="text-white font-medium mb-6 w-full text-left pl-4">Select a Date</h3>
+             <Calendar
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="rounded-[4px] border border-[#2A2A2A] bg-black text-white mb-6"
+                className="rounded-md text-white w-full flex justify-center"
+                classNames={{
+                  head_cell: "text-[#6A6A6A] font-normal text-[0.8rem]",
+                  cell: "text-center text-sm p-0 relative [&:has([aria-selected])]:bg-[#1A1A1A] first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+                  day: "h-9 w-9 p-0 font-normal text-white aria-selected:opacity-100 hover:bg-[#1A1A1A] rounded-full",
+                  day_selected: "bg-white text-black hover:bg-white hover:text-black focus:bg-white focus:text-black",
+                  day_today: "bg-[#1A1A1A] text-white",
+                }}
               />
-              <div className="space-y-2">
-                <div className="p-3 bg-[#0D0D0D] border border-[#2A2A2A] rounded-[4px] flex justify-between items-center cursor-pointer hover:border-[#4DA3FF] transition-colors">
-                  <span className="text-sm text-[#B3B3B3]">10:00 AM - Discovery Call</span>
-                  <Button size="sm" variant="outline" className="h-7 text-xs border-[#2A2A2A] text-white">Select</Button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-12 space-y-2 text-[#B3B3B3]">
-              <p>contact@intelliedge.silicon</p>
-              <p>Tech Park, Silicon Valley, CA</p>
-            </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="lg:col-span-7">
+          {/* Right Panel: Time Slots */}
+          <div className="md:w-1/3 p-6 bg-black overflow-y-auto h-[600px]">
+            <h3 className="text-white font-medium mb-6">Select a Time</h3>
+            {date ? (
+              <div className="flex flex-col gap-3">
+                {timeSlots.map((time) => (
+                  <button
+                    key={time}
+                    onClick={() => setSelectedTime(time)}
+                    className={`w-full py-3 px-4 rounded-[4px] border text-sm font-medium transition-all flex justify-between items-center group ${
+                      selectedTime === time
+                        ? "bg-white text-black border-white"
+                        : "bg-transparent border-[#2A2A2A] text-white hover:border-white"
+                    }`}
+                  >
+                    {time}
+                    {selectedTime === time && <ChevronRight className="w-4 h-4" />}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="h-full flex items-center justify-center text-[#6A6A6A] text-sm">
+                Please select a date first
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Contact Form Section */}
+        <div className="max-w-3xl mx-auto">
              <div className="bg-black p-10 rounded-[4px] border border-[#2A2A2A]">
               <h2 className="text-[24px] font-display font-bold text-white mb-8">Send a Message</h2>
               <form className="space-y-6">
@@ -71,7 +122,6 @@ export default function Contact() {
                 </Button>
               </form>
             </div>
-          </div>
         </div>
       </div>
     </Layout>
