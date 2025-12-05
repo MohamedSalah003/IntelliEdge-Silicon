@@ -1,7 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Cpu, ShieldCheck, Microchip } from "lucide-react";
-import chipImage from "@assets/generated_images/edge_ai_asic_chip_on_pcb.png";
+import { ArrowUpRight, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Products() {
@@ -34,61 +33,60 @@ export default function Products() {
 
   return (
     <Layout>
-      <div className="pt-12 pb-24 container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-16 border-b border-white/10 pb-8">
+      <div className="py-[100px] container mx-auto px-6 max-w-[1280px]">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-20 border-b border-[#2A2A2A] pb-10">
           <div>
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">Products & IPs</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl">
-              Our portfolio of hardened IP blocks and ready-to-integrate ASICs designed for cost-sensitive edge applications.
+            <h1 className="text-[42px] md:text-[64px] font-display font-bold text-white mb-6 leading-tight">Products & IPs</h1>
+            <p className="text-[#B3B3B3] text-[18px] max-w-2xl">
+              Hardened IP blocks and ready-to-integrate ASICs designed for cost-sensitive edge applications.
             </p>
           </div>
-          <Button className="hidden md:flex gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10">
-            Download Catalog <ArrowUpRight className="w-4 h-4" />
+          <Button 
+            variant="outline"
+            className="mt-6 md:mt-0 border-[#B3B3B3] text-white hover:border-white bg-transparent rounded-[4px]"
+          >
+            Download Catalog <ArrowUpRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-24">
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 group">
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
-            <img src={chipImage} alt="Chip" className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700" />
-            <div className="absolute bottom-0 left-0 z-20 p-8">
-              <span className="px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider mb-3 inline-block">Flagship</span>
-              <h2 className="text-3xl font-bold mb-2">IntelliCore-X1 Dev Kit</h2>
-              <p className="text-gray-300 mb-6 max-w-md">Complete development board featuring our signature X1 accelerator. Ideal for prototyping smart IoT devices.</p>
-              <Button>View Specs</Button>
+        <div className="grid lg:grid-cols-12 gap-12 mb-24">
+          {/* Featured Product - Takes up 5 columns */}
+          <div className="lg:col-span-5">
+            <div className="bg-black border border-[#2A2A2A] p-10 rounded-[4px] h-full flex flex-col justify-between">
+              <div>
+                <span className="text-primary text-xs font-bold uppercase tracking-wider mb-4 block">Flagship Product</span>
+                <h2 className="text-[32px] font-display font-bold text-white mb-4">IntelliCore-X1 Dev Kit</h2>
+                <p className="text-[#B3B3B3] mb-8 leading-relaxed">
+                  Complete development board featuring our signature X1 accelerator. Ideal for prototyping smart IoT devices with minimal power overhead.
+                </p>
+              </div>
+              <Button className="w-fit border border-primary text-primary bg-transparent hover:bg-transparent hover:brightness-110 rounded-[4px]">
+                View Specifications
+              </Button>
             </div>
           </div>
           
-          <div className="space-y-6">
+          {/* Product List - Takes up 7 columns */}
+          <div className="lg:col-span-7 space-y-6">
             {products.map((product) => (
               <motion.div 
                 key={product.id}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="p-6 rounded-xl bg-card border border-white/5 hover:border-primary/50 transition-colors flex flex-col md:flex-row gap-6 items-start"
+                className="p-8 bg-black border border-[#2A2A2A] rounded-[4px] hover:border-[#6A6A6A] transition-colors"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                  <Cpu className="w-6 h-6 text-primary" />
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-[24px] font-display font-bold text-white">{product.name}</h3>
+                  <span className="text-xs px-2 py-1 rounded border border-[#2A2A2A] text-[#B3B3B3] bg-[#0D0D0D]">
+                    {product.status}
+                  </span>
                 </div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold">{product.name}</h3>
-                    <span className={`text-xs px-2 py-1 rounded border ${
-                      product.status === 'Available IP' ? 'bg-green-500/10 border-green-500/20 text-green-400' : 
-                      'bg-amber-500/10 border-amber-500/20 text-amber-400'
-                    }`}>
-                      {product.status}
+                <p className="text-sm text-[#6A6A6A] uppercase tracking-wider mb-4">{product.category}</p>
+                <p className="text-[#B3B3B3] text-sm mb-6">{product.desc}</p>
+                <div className="flex gap-3 flex-wrap">
+                  {product.specs.map((spec, i) => (
+                    <span key={i} className="text-xs text-[#B3B3B3] border-r border-[#2A2A2A] pr-3 last:border-0">
+                      {spec}
                     </span>
-                  </div>
-                  <p className="text-sm text-primary/80 font-tech uppercase tracking-wider mb-2">{product.category}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{product.desc}</p>
-                  <div className="flex gap-3 flex-wrap">
-                    {product.specs.map((spec, i) => (
-                      <span key={i} className="text-xs bg-white/5 px-2 py-1 rounded text-gray-400 border border-white/5">
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </motion.div>
             ))}
@@ -96,17 +94,12 @@ export default function Products() {
         </div>
 
         {/* IP Library Section */}
-        <div className="bg-secondary/20 rounded-2xl p-12 border border-white/5">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Soft IP Library</h2>
-            <p className="text-muted-foreground">Verified RTL blocks ready for integration into your custom SoC.</p>
-          </div>
-          
+        <div className="pt-20 border-t border-[#2A2A2A]">
+          <h2 className="text-[32px] font-display font-bold text-white mb-10">Soft IP Library</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {["RISC-V Cores", "SPI/I2C Controllers", "DMA Engines", "Crypto Accelerators", "PWM Generators", "ADC Interfaces"].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-white/5">
-                <ShieldCheck className="w-5 h-5 text-primary" />
-                <span className="font-medium">{item}</span>
+              <div key={i} className="p-6 bg-black border border-[#2A2A2A] rounded-[4px]">
+                <span className="font-medium text-white">{item}</span>
               </div>
             ))}
           </div>

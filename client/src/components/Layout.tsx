@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Cpu, Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -16,18 +16,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20">
-      <header className="fixed top-0 w-full z-50 border-b border-white/10 bg-background/80 backdrop-blur-md">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+    <div className="min-h-screen flex flex-col bg-black text-white font-sans selection:bg-primary/20">
+      {/* Navigation Bar - Height 72px, Pure Black */}
+      <header className="fixed top-0 w-full z-50 bg-black h-[72px] border-b border-[#2A2A2A]">
+        <div className="container mx-auto px-6 h-full flex items-center justify-between max-w-[1280px]">
           <Link href="/">
             <a className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-primary/10 border border-primary/30 rounded-sm flex items-center justify-center group-hover:border-primary/80 transition-colors">
-                <Cpu className="w-6 h-6 text-primary animate-pulse" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-display font-bold text-xl tracking-tight leading-none">IntelliEdge</span>
-                <span className="font-tech text-xs text-muted-foreground tracking-widest uppercase">Silicon</span>
-              </div>
+              {/* Logo: White Monochrome */}
+              <span className="font-display font-bold text-xl tracking-tight text-white">
+                IntelliEdge Silicon
+              </span>
             </a>
           </Link>
 
@@ -36,16 +34,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <a
-                  className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${
-                    location === link.href ? "text-primary" : "text-muted-foreground"
+                  className={`text-sm font-medium transition-colors ${
+                    location === link.href ? "text-white" : "text-[#B3B3B3] hover:text-white"
                   }`}
                 >
                   {link.label}
                 </a>
               </Link>
             ))}
-            <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 hover:text-primary font-tech uppercase tracking-widest text-xs">
-              Get Access
+            {/* CTA: Accent outline or accent text only. No filled solid accent buttons. */}
+            <Button 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-transparent hover:brightness-110 hover:text-primary rounded-[4px] h-10 px-6 bg-transparent"
+            >
+              Request Custom Chip
             </Button>
           </nav>
 
@@ -53,18 +55,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-white">
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-background border-l border-white/10">
+              <SheetContent side="right" className="w-[300px] bg-black border-l border-[#2A2A2A] text-white">
                 <div className="flex flex-col gap-8 mt-10">
                   {navLinks.map((link) => (
                     <Link key={link.href} href={link.href}>
                       <a
                         onClick={() => setIsOpen(false)}
-                        className={`text-2xl font-display font-bold ${
-                          location === link.href ? "text-primary" : "text-foreground"
+                        className={`text-xl font-display font-bold ${
+                          location === link.href ? "text-primary" : "text-white"
                         }`}
                       >
                         {link.label}
@@ -78,51 +80,42 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-[72px]">
         {children}
       </main>
 
-      <footer className="border-t border-white/10 bg-black/20 py-12">
-        <div className="container mx-auto px-6">
+      <footer className="border-t border-[#2A2A2A] bg-black py-20 mt-20">
+        <div className="container mx-auto px-6 max-w-[1280px]">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <Cpu className="w-5 h-5 text-primary" />
-                <span className="font-display font-bold text-lg">IntelliEdge Silicon</span>
-              </div>
-              <p className="text-muted-foreground max-w-md text-sm leading-relaxed">
-                Democratizing ASIC design with 130nm nodes, Agentic AI, and MPW technology. 
-                Building the nervous system for the next generation of robotics and IoT.
+              <span className="font-display font-bold text-lg text-white block mb-4">IntelliEdge Silicon</span>
+              <p className="text-[#B3B3B3] max-w-md text-sm leading-relaxed">
+                Technical. Precise. Modern. <br/>
+                Democratizing ASIC design with 130nm nodes and Agentic AI.
               </p>
             </div>
             <div>
-              <h4 className="font-tech text-primary uppercase tracking-widest text-sm mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <h4 className="font-display font-bold text-white text-sm mb-6">Company</h4>
+              <ul className="space-y-3 text-sm text-[#B3B3B3]">
                 <li><Link href="/"><a className="hover:text-white transition-colors">Mission</a></Link></li>
                 <li><Link href="/contact"><a className="hover:text-white transition-colors">Team</a></Link></li>
                 <li><Link href="/contact"><a className="hover:text-white transition-colors">Careers</a></Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-tech text-primary uppercase tracking-widest text-sm mb-4">Connect</h4>
-              <div className="flex gap-4">
-                <a href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors">
-                  <Github className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4" />
-                </a>
-              </div>
+              <h4 className="font-display font-bold text-white text-sm mb-6">Connect</h4>
+              <ul className="space-y-3 text-sm text-[#B3B3B3]">
+                <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Email</a></li>
+              </ul>
             </div>
           </div>
-          <div className="border-t border-white/5 pt-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
+          <div className="border-t border-[#2A2A2A] pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-[#6A6A6A]">
             <p>&copy; 2025 IntelliEdge Silicon. All rights reserved.</p>
-            <div className="flex gap-4 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Terms of Service</a>
+            <div className="flex gap-6 mt-4 md:mt-0">
+              <a href="#" className="hover:text-[#B3B3B3]">Privacy</a>
+              <a href="#" className="hover:text-[#B3B3B3]">Terms</a>
             </div>
           </div>
         </div>

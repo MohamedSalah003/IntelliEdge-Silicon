@@ -23,53 +23,53 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  --color-chart-1: hsl(var(--chart-1));
-  --color-chart-2: hsl(var(--chart-2));
-  --color-chart-3: hsl(var(--chart-3));
-  --color-chart-4: hsl(var(--chart-4));
-  --color-chart-5: hsl(var(--chart-5));
   
   --font-sans: 'Inter', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-tech: 'Rajdhani', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Montserrat', sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
   --radius-lg: var(--radius);
 }
 
-/* Dark Theme by Default for High-Tech Feel */
 :root {
-  --background: 222 47% 11%; /* Deep Blue/Black */
-  --foreground: 210 40% 98%; /* Off White */
+  /* Core Colors */
+  --background: 0 0% 0%; /* #000000 Pure Black */
+  --foreground: 0 0% 100%; /* #FFFFFF Primary Text */
   
-  --card: 222 47% 13%; /* Slightly Lighter Blue */
-  --card-foreground: 210 40% 98%;
+  /* Card & Popovers */
+  --card: 0 0% 0%; /* #000000 Black */
+  --card-foreground: 0 0% 100%;
   
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 100%;
   
-  --primary: 180 100% 50%; /* Electric Cyan */
-  --primary-foreground: 222 47% 11%;
+  /* Primary - Metallic Blue #4DA3FF */
+  --primary: 211 100% 65%; 
+  --primary-foreground: 0 0% 0%;
   
-  --secondary: 217 19% 27%; /* Muted Metal */
-  --secondary-foreground: 210 40% 98%;
+  /* Secondary Text #B3B3B3 */
+  --secondary: 0 0% 70%;
+  --secondary-foreground: 0 0% 0%;
   
-  --muted: 217 19% 20%;
-  --muted-foreground: 215 20% 65%;
+  /* Muted/Tertiary #6A6A6A */
+  --muted: 0 0% 42%;
+  --muted-foreground: 0 0% 70%; /* Using Secondary for text on muted elements */
   
-  --accent: 180 100% 50%; /* Cyan Accent */
-  --accent-foreground: 222 47% 11%;
+  /* Accent - Same as Primary for this system */
+  --accent: 211 100% 65%;
+  --accent-foreground: 0 0% 0%;
   
+  /* Destructive */
   --destructive: 0 62% 30%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 0 0% 100%;
   
-  --border: 217 19% 27%;
-  --input: 217 19% 27%;
-  --ring: 180 100% 50%;
+  /* Borders - Steel Gray #2A2A2A */
+  --border: 0 0% 16%; 
+  --input: 0 0% 16%;
+  --ring: 211 100% 65%;
   
-  --radius: 0.25rem;
+  --radius: 4px; /* 4-6px radius */
 }
 
 @layer base {
@@ -81,18 +81,33 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+    @apply font-display font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply tracking-[-0.02em]; /* -2% letter spacing */
+  }
+  
+  h2 {
+    @apply tracking-[-0.01em]; /* -1% letter spacing */
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-linear-to-r from-white to-white/70;
+  /* Custom utilities for the design system */
+  .text-secondary {
+    color: #B3B3B3;
   }
-  .text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-cyan-300;
+  
+  .text-tertiary {
+    color: #6A6A6A;
   }
-  .glass-panel {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  
+  .border-steel {
+    border-color: #2A2A2A;
+  }
+  
+  .bg-input-field {
+    background-color: #0D0D0D;
   }
 }

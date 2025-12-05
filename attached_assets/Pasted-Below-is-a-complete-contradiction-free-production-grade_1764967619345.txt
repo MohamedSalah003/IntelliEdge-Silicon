@@ -1,0 +1,174 @@
+Below is a complete, contradiction-free, production-grade design guide for your website, organized like a real design system: color, typography, grids, spacing, components, interactions, and page-specific layouts. No fluff, no visual metaphors, no creative overreach. Strictly the rules needed to build the site.
+
+---
+
+# Full Design Guide — Version 1.0
+
+## 1. Brand Identity
+
+•⁠  ⁠Tone: Technical, precise, modern, minimalist.
+•⁠  ⁠Visual Philosophy: High contrast, no unnecessary ornamentation.
+•⁠  ⁠Purpose: Present a company specialized in hardware + algorithmic systems with a clean, high-signal aesthetic.
+
+---
+
+# 2. Color System
+
+## 2.1 Core Colors
+
+| Role               | Value     | Notes                          |
+| ------------------ | --------- | ------------------------------ |
+| Background     | #000000 | Pure black. Site-wide.         |
+| Primary Text   | #FFFFFF | Headings and body text.        |
+| Secondary Text | #B3B3B3 | Subheadings, metadata, labels. |
+| Tertiary Text  | #6A6A6A | Low hierarchy elements only.   |
+
+## 2.2 Accent (Single Allowed Accent)
+
+Pick one for the entire system; do not mix.
+
+Options:
+
+•⁠  ⁠Metallic Blue: #4DA3FF
+•⁠  ⁠Steel Gray: #8A93A5
+•⁠  ⁠Subtle Gradient: Black → Steel Gray (2–5% variation)
+
+Usage constraints:
+
+•⁠  ⁠Only for CTAs, minimal highlights, thin dividers, micro-interactions.
+•⁠  ⁠No glow, neon, saturation spikes, or multicolor transitions.
+•⁠  ⁠Never used for backgrounds.
+
+---
+
+# 3. Typography
+
+## 3.1 Font Families
+
+•⁠  ⁠Headlines: Montserrat
+•⁠  ⁠Body: Inter
+
+No additional families allowed.
+
+## 3.2 Headline Rules
+
+| Level    | Font       | Weight | Desktop Size | Mobile Size | Line Height |
+| -------- | ---------- | ------ | ------------ | ----------- | ----------- |
+| Hero | Montserrat | 700    | 60–64px      | 32–36px     | ~1.1        |
+| H2       | Montserrat | 700    | 36–42px      | 28–32px     | ~1.2        |
+| H3       | Montserrat | 600    | 28–32px      | 22–26px     | ~1.25       |
+
+Letter spacing: -1% to -2% for hero and H2.
+
+## 3.3 Body Text
+
+| Use                 | Font  | Size    | Weight  | Notes                   |
+| ------------------- | ----- | ------- | ------- | ----------------------- |
+| Paragraph           | Inter | 16–18px | 400     | Default copy            |
+| Labels / small text | Inter | 14px    | 400–500 | Only for UI or metadata |
+| Buttons             | Inter | 14–16px | 500–600 | Uppercase optional      |
+
+---
+
+# 4. Layout System
+
+## 4.1 Grid
+
+•⁠  ⁠12-column responsive grid
+•⁠  ⁠Max content width: 1280px
+•⁠  ⁠Gutter: 24px
+•⁠  ⁠Margin: 80–100px vertical padding per section
+
+## 4.2 Spacing Scale (Vertical)
+
+•⁠  ⁠XS: 8px
+•⁠  ⁠S: 16px
+•⁠  ⁠M: 24px
+•⁠  ⁠L: 40px
+•⁠  ⁠XL: 64px
+•⁠  ⁠XXL: 80–120px (section padding)
+
+## 4.3 Alignment
+
+•⁠  ⁠Centered hero sections
+•⁠  ⁠Left-aligned content blocks
+•⁠  ⁠Product tiles aligned to grid columns
+•⁠  ⁠No justified text
+
+---
+
+# 5. Components
+
+## 5.1 Navigation Bar
+
+•⁠  ⁠Height: 72px
+•⁠  ⁠Background: Pure black
+•⁠  ⁠Logo: White PNG (monochrome)
+•⁠  ⁠Links: Primary white
+•⁠  ⁠Hover: Secondary text color
+•⁠  ⁠CTA (“Request Custom Chip”): Accent outline or accent text only
+
+## 5.2 Buttons
+
+Two variants allowed:
+
+### Primary (Accent)
+
+•⁠  ⁠Border: 1px accent
+•⁠  ⁠Text: accent
+•⁠  ⁠Background: transparent
+•⁠  ⁠Hover: slight accent brightness (no glow, no fill)
+
+### Secondary (Monochrome)
+
+•⁠  ⁠Border: 1px #B3B3B3
+•⁠  ⁠Text: white
+•⁠  ⁠Hover: border shifts to #FFFFFF
+
+### Constraints
+
+•⁠  ⁠No filled solid accent buttons
+•⁠  ⁠No rounded pill shapes; radius = 4–6px
+•⁠  ⁠No shadows
+
+---
+
+## 5.3 Cards
+
+•⁠  ⁠Background: Black
+•⁠  ⁠Border: 1px steel-gray (#2A2A2A)
+•⁠  ⁠Padding: 32–40px
+•⁠  ⁠Gap: 24px
+•⁠  ⁠Hover: Minimal border brightness, no movement
+
+Use for product previews, feature tiles.
+
+---
+
+## 5.4 Form Fields
+
+•⁠  ⁠Background: #0D0D0D
+•⁠  ⁠Border: 1px #2A2A2A
+•⁠  ⁠Focus: Accent border
+•⁠  ⁠Text: White + Secondary placeholder
+•⁠  ⁠Label: Secondary text
+
+---
+
+# 6. Visual Elements
+
+## 6.1 Hero Visual
+
+•⁠  ⁠Pure black background
+•⁠  ⁠Optional subtle arch or abstract shape:
+
+  * White or steel-gray outline
+  * Extremely low contrast (5–10% opacity)
+  * Does not define the whole design system
+  * Serves as a backdrop, not the focal point
+
+## 6.2 Product Imagery
+
+•⁠  ⁠Monochrome-style renders
+•⁠  ⁠Thin-line circuit illustrations
+•⁠  ⁠Slight accent highlights allowed, but minimal
