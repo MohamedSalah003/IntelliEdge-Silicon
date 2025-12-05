@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Cpu } from "lucide-react";
+import { ArrowUpRight, Cpu, Layers, Zap, Database, Microchip } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Products() {
@@ -29,6 +29,20 @@ export default function Products() {
       specs: ["Global Shutter Support", "Edge Detection HW", "MIPI CSI-2"],
       status: "Available IP"
     }
+  ];
+
+  const memoryIps = [
+    { name: "High-Density SRAM", desc: "Optimized for low leakage, sizes from 4KB to 512KB." },
+    { name: "Embedded DRAM", desc: "High bandwidth memory macro for cache applications." },
+    { name: "Async FIFO", desc: "Robust clock domain crossing buffers." },
+    { name: "vUART", desc: "Virtual UART for efficient debug logging." }
+  ];
+
+  const algoIps = [
+    { name: "Kalman Filter", desc: "Hardware accelerator for sensor fusion and estimation." },
+    { name: "FFT Engine", desc: "Radix-2/4 fast fourier transform for signal processing." },
+    { name: "TinyCNN", desc: "Lightweight convolution accelerator for 3x3 kernels." },
+    { name: "PID Controller", desc: "Hardened control loop logic for motor drivers." }
   ];
 
   return (
@@ -95,13 +109,42 @@ export default function Products() {
 
         {/* IP Library Section */}
         <div className="pt-20 border-t border-[#2A2A2A]">
-          <h2 className="text-[32px] font-display font-bold text-white mb-10">Soft IP Library</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {["RISC-V Cores", "SPI/I2C Controllers", "DMA Engines", "Crypto Accelerators", "PWM Generators", "ADC Interfaces"].map((item, i) => (
-              <div key={i} className="p-6 bg-black border border-[#2A2A2A] rounded-[4px]">
-                <span className="font-medium text-white">{item}</span>
+          <h2 className="text-[32px] font-display font-bold text-white mb-10">IP Core Library</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            
+            {/* Memory & Peripherals */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Database className="w-6 h-6 text-primary" />
+                <h3 className="text-[24px] font-display font-bold text-white">Memory & Peripherals</h3>
               </div>
-            ))}
+              <div className="grid gap-4">
+                {memoryIps.map((ip, i) => (
+                  <div key={i} className="p-6 bg-black border border-[#2A2A2A] rounded-[4px] hover:border-[#4DA3FF] transition-colors group">
+                    <h4 className="font-bold text-white mb-1 group-hover:text-primary transition-colors">{ip.name}</h4>
+                    <p className="text-sm text-[#B3B3B3]">{ip.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Smart Algorithms */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Zap className="w-6 h-6 text-primary" />
+                <h3 className="text-[24px] font-display font-bold text-white">Algorithmic Accelerators</h3>
+              </div>
+              <div className="grid gap-4">
+                {algoIps.map((ip, i) => (
+                  <div key={i} className="p-6 bg-black border border-[#2A2A2A] rounded-[4px] hover:border-[#4DA3FF] transition-colors group">
+                    <h4 className="font-bold text-white mb-1 group-hover:text-primary transition-colors">{ip.name}</h4>
+                    <p className="text-sm text-[#B3B3B3]">{ip.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
