@@ -64,7 +64,3 @@ export default function Contact() {
     </Layout>
   );
 }
-      </div>
-    </Layout>
-  );
-}
