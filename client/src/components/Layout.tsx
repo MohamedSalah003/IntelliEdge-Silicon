@@ -34,9 +34,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <a
-                  className={`text-sm font-medium transition-colors ${
-                    location === link.href ? "text-white" : "text-[#B3B3B3] hover:text-white"
-                  }`}
+                  className={`text-sm font-medium transition-colors ${location === link.href ? "text-white" : "text-[#B3B3B3] hover:text-white"
+                    }`}
                 >
                   {link.label}
                 </a>
@@ -44,8 +43,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ))}
             {/* CTA: Accent outline or accent text only. No filled solid accent buttons. */}
             <Link href="/contact">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="border-primary text-primary hover:bg-transparent hover:brightness-110 hover:text-primary rounded-[4px] h-10 px-6 bg-transparent cursor-pointer"
               >
                 Request Custom Chip
@@ -67,9 +66,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <Link key={link.href} href={link.href}>
                       <a
                         onClick={() => setIsOpen(false)}
-                        className={`text-xl font-display font-bold ${
-                          location === link.href ? "text-primary" : "text-white"
-                        }`}
+                        className={`text-xl font-display font-bold ${location === link.href ? "text-primary" : "text-white"
+                          }`}
                       >
                         {link.label}
                       </a>
@@ -92,7 +90,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="md:col-span-2">
               <span className="font-display font-bold text-lg text-white block mb-4">IntelliEdge Silicon</span>
               <p className="text-[#B3B3B3] max-w-md text-sm leading-relaxed mb-6">
-                Technical. Precise. Modern. <br/>
+                Technical. Precise. Modern. <br />
                 Forging intelligence directly into silicon architecture.
               </p>
               <div className="flex items-center gap-3 text-[#B3B3B3]">
@@ -113,7 +111,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-display font-bold text-white text-sm mb-6">Connect</h4>
               <ul className="space-y-3 text-sm text-[#B3B3B3]">
-                <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/company/intelliedge-silicon/" className="hover:text-white transition-colors">LinkedIn</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
                 <li><Link href="/contact"><a className="hover:text-white transition-colors">Contact Form</a></Link></li>
               </ul>
