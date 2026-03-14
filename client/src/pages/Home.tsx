@@ -14,29 +14,27 @@ export default function Home() {
           <div className="grid md:grid-cols-12 gap-12">
             <div className="md:col-span-5">
               <h2 className="text-[32px] md:text-[42px] font-display font-bold text-white mb-6 leading-[1.2] tracking-[-0.01em]">
-                Vertical Integration <br />
-                <span className="text-[#B3B3B3]">Through Algorithmic Co-Design</span>
+                Pioneering the Era of <br />
+                <span className="text-[#B3B3B3]">Silicon Intelligence</span>
               </h2>
             </div>
             <div className="md:col-span-1"></div>
             <div className="md:col-span-6">
               <p className="text-[#B3B3B3] text-[16px] md:text-[18px] leading-relaxed mb-6">
-                We don't just design chips; we architect systems. Our strategy focuses on "Algorithmic Co-Design," 
-                where hardware architecture is derived directly from your AI models and control loops.
+                True intelligence doesn't just live in the cloud—it is forged in silicon. We partner with visionaries to embed highly optimized, custom AI directly into the physical world, bringing unmatched efficiency to every device.
               </p>
               <p className="text-[#B3B3B3] text-[16px] md:text-[18px] leading-relaxed mb-8">
-                By stripping away general-purpose bloat and hardening specific algorithms into silicon, 
-                we achieve 100x efficiency gains over standard MCUs, making advanced edge AI viable on cost-effective 130nm nodes.
+                By co-designing the algorithm and the architecture, we bypass the limitations of generic hardware. The result is a transformative leap in performance, privacy, and power efficiency for the edge.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
-                <div className="p-8 border border-[#2A2A2A] bg-black rounded-[4px]">
-                  <h3 className="font-display font-bold text-white text-[24px] mb-2">Agentic AI</h3>
-                  <p className="text-[#B3B3B3] text-sm">Automated layout & verification reducing engineering hours by 70%.</p>
+                <div className="p-8 border border-[#2A2A2A] bg-black rounded-[4px] hover:border-[#4DA3FF] transition-colors">
+                  <h3 className="font-display font-bold text-white text-[24px] mb-2">Absolute Privacy</h3>
+                  <p className="text-[#B3B3B3] text-sm">Processing happens entirely on-device, ensuring zero data leaves your system.</p>
                 </div>
-                <div className="p-8 border border-[#2A2A2A] bg-black rounded-[4px]">
-                  <h3 className="font-display font-bold text-white text-[24px] mb-2">Rapid Tape-out</h3>
-                  <p className="text-[#B3B3B3] text-sm">Streamlined flow from Verilog to GDSII in under 4 months.</p>
+                <div className="p-8 border border-[#2A2A2A] bg-black rounded-[4px] hover:border-[#4DA3FF] transition-colors">
+                  <h3 className="font-display font-bold text-white text-[24px] mb-2">Zero Latency</h3>
+                  <p className="text-[#B3B3B3] text-sm">Instantaneous decision-making without the overhead of cloud connectivity.</p>
                 </div>
               </div>
             </div>

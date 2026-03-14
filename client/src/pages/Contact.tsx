@@ -44,7 +44,7 @@ export default function Contact() {
               </div>
             </div>
             <p className="text-[#B3B3B3] text-sm leading-relaxed">
-              A preliminary discussion to understand your application requirements (latency, power, cost) and determine if our 130nm platform is the right fit.
+              A preliminary discussion to understand your application requirements (latency, power, cost) and determine how our custom silicon solutions can accelerate your edge AI workloads.
             </p>
           </div>
 

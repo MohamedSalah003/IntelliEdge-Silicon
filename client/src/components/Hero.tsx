@@ -20,13 +20,12 @@ export function Hero() {
           className="max-w-4xl mx-auto"
         >
           <h1 className="text-white font-display font-bold text-[36px] md:text-[64px] leading-[1.1] tracking-[-0.02em] mb-8">
-            Democratizing <br />
-            Silicon Intelligence
+            Intelligence, <br />
+            Forged in Silicon.
           </h1>
           
           <p className="text-[#B3B3B3] text-[16px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-normal">
-            Building low-cost, high-efficiency ASICs on 130nm nodes for Edge AI and Robotics. 
-            Powered by Agentic AI and Multi-Project Wafer technology for rapid deployment.
+            We don't just build chips—we are an intelligence company. We partner with you to embed your AI directly into custom silicon, breaking free from the cloud to deliver zero latency, absolute privacy, and unmatched efficiency at the edge.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

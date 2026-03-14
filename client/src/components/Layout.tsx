@@ -12,7 +12,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
     { href: "/", label: "Home" },
     { href: "/who-we-are", label: "Who We Are" },
     { href: "/products", label: "Products & IPs" },
-    { href: "/tools", label: "Tools" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -92,7 +91,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <span className="font-display font-bold text-lg text-white block mb-4">IntelliEdge Silicon</span>
               <p className="text-[#B3B3B3] max-w-md text-sm leading-relaxed mb-6">
                 Technical. Precise. Modern. <br/>
-                Democratizing ASIC design with 130nm nodes and Agentic AI.
+                Forging intelligence directly into silicon architecture.
               </p>
               <div className="flex items-center gap-3 text-[#B3B3B3]">
                 <Mail className="w-4 h-4" />
