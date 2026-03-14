@@ -43,12 +43,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
             {/* CTA: Accent outline or accent text only. No filled solid accent buttons. */}
-            <Button 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-transparent hover:brightness-110 hover:text-primary rounded-[4px] h-10 px-6 bg-transparent"
-            >
-              Request Custom Chip
-            </Button>
+            <Link href="/contact">
+              <Button 
+                variant="outline" 
+                className="border-primary text-primary hover:bg-transparent hover:brightness-110 hover:text-primary rounded-[4px] h-10 px-6 bg-transparent cursor-pointer"
+              >
+                Request Custom Chip
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile Nav */}

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 export function Hero() {
   return (
@@ -30,21 +31,25 @@ export function Hero() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {/* Primary Button: Accent outline, accent text, transparent bg */}
-            <Button 
-              size="lg" 
-              className="bg-transparent border border-primary text-primary hover:brightness-110 hover:bg-transparent rounded-[4px] px-8 font-medium text-[16px]"
-            >
-              EXPLORE PRODUCTS
-            </Button>
+            <Link href="/products">
+              <Button 
+                size="lg" 
+                className="bg-transparent border border-primary text-primary hover:brightness-110 hover:bg-transparent rounded-[4px] px-8 font-medium text-[16px] cursor-pointer"
+              >
+                EXPLORE PRODUCTS
+              </Button>
+            </Link>
             
             {/* Secondary Button: Monochrome outline */}
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-[#B3B3B3] text-white bg-transparent hover:border-white hover:bg-transparent hover:text-white rounded-[4px] px-8 font-medium text-[16px]"
-            >
-              OUR TECHNOLOGY
-            </Button>
+            <Link href="/who-we-are">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-[#B3B3B3] text-white bg-transparent hover:border-white hover:bg-transparent hover:text-white rounded-[4px] px-8 font-medium text-[16px] cursor-pointer"
+              >
+                OUR TECHNOLOGY
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>
