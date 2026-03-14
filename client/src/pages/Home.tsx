@@ -8,23 +8,6 @@ export default function Home() {
     <Layout>
       <Hero />
       
-      {/* Trusted By / Partners Section */}
-      <section className="py-12 border-b border-[#2A2A2A] bg-[#050505]">
-        <div className="container mx-auto px-6 max-w-[1280px]">
-           <p className="text-center text-[#6A6A6A] text-sm font-medium uppercase tracking-widest mb-8">
-             Trusted by Industry Leaders
-           </p>
-           <div className="flex flex-wrap justify-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-             {/* Placeholder Logos represented by text for now */}
-             {['RoboDynamics', 'Nexus IoT', 'AutoDrone', 'EdgeCompute Inc', 'SmartFab'].map((partner, i) => (
-               <span key={i} className="text-xl font-display font-bold text-white flex items-center gap-2">
-                 <div className="w-6 h-6 bg-white/20 rounded-full"></div> {partner}
-               </span>
-             ))}
-           </div>
-        </div>
-      </section>
-      
       {/* Mission / Strategy Section */}
       <section className="py-[100px] bg-black">
         <div className="container mx-auto px-6 max-w-[1280px]">

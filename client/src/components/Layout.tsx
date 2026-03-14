@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: "/", label: "Mission" },
+    { href: "/", label: "Home" },
+    { href: "/who-we-are", label: "Who We Are" },
     { href: "/products", label: "Products & IPs" },
     { href: "/tools", label: "Tools" },
     { href: "/contact", label: "Contact" },
@@ -89,17 +90,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div className="md:col-span-2">
               <span className="font-display font-bold text-lg text-white block mb-4">IntelliEdge Silicon</span>
-              <p className="text-[#B3B3B3] max-w-md text-sm leading-relaxed">
+              <p className="text-[#B3B3B3] max-w-md text-sm leading-relaxed mb-6">
                 Technical. Precise. Modern. <br/>
                 Democratizing ASIC design with 130nm nodes and Agentic AI.
               </p>
+              <div className="flex items-center gap-3 text-[#B3B3B3]">
+                <Mail className="w-4 h-4" />
+                <a href="mailto:info@intelliedgesilicon.systems" className="text-sm hover:text-white transition-colors">
+                  info@intelliedgesilicon.systems
+                </a>
+              </div>
             </div>
             <div>
               <h4 className="font-display font-bold text-white text-sm mb-6">Company</h4>
               <ul className="space-y-3 text-sm text-[#B3B3B3]">
-                <li><Link href="/"><a className="hover:text-white transition-colors">Mission</a></Link></li>
-                <li><Link href="/contact"><a className="hover:text-white transition-colors">Team</a></Link></li>
-                <li><Link href="/contact"><a className="hover:text-white transition-colors">Careers</a></Link></li>
+                <li><Link href="/"><a className="hover:text-white transition-colors">Home</a></Link></li>
+                <li><Link href="/who-we-are"><a className="hover:text-white transition-colors">Who We Are</a></Link></li>
+                <li><Link href="/products"><a className="hover:text-white transition-colors">Products & IPs</a></Link></li>
               </ul>
             </div>
             <div>
@@ -107,12 +114,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3 text-sm text-[#B3B3B3]">
                 <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Email</a></li>
+                <li><Link href="/contact"><a className="hover:text-white transition-colors">Contact Form</a></Link></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-[#2A2A2A] pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-[#6A6A6A]">
-            <p>&copy; 2025 IntelliEdge Silicon. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} IntelliEdge Silicon. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-[#B3B3B3]">Privacy</a>
               <a href="#" className="hover:text-[#B3B3B3]">Terms</a>

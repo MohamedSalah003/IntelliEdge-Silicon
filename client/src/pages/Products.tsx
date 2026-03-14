@@ -1,33 +1,33 @@
 import { Layout } from "@/components/Layout";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Cpu, Layers, Zap, Database, Microchip } from "lucide-react";
+import { ArrowUpRight, Database, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Products() {
   const products = [
     {
-      id: "ie-100",
-      name: "IntelliCore-X1",
-      category: "Edge AI Accelerator",
-      desc: "A dedicated neural network accelerator optimized for quantized inference on 130nm.",
-      specs: ["0.5 TOPS/W", "SPI/I2C Interface", "On-chip SRAM"],
-      status: "Tape-out Ready"
-    },
-    {
-      id: "ie-200",
-      name: "MotionSense MCU",
-      category: "Robotics Control",
-      desc: "Real-time motor control unit with integrated sensor fusion hardware logic.",
-      specs: ["6-Axis Motion Support", "Hard-Realtime", "Low Jitter"],
+      id: "ie-sl-1",
+      name: "Sign Language Accelerator",
+      category: "Accessibility AI",
+      desc: "Real-time sign language-to-text processing embedded in laptop cameras, enabling deaf and hard-of-hearing individuals to engage seamlessly in presentations, meetings, and video calls without cloud dependency.",
+      specs: ["On-device SL recognition", "Laptop camera integration", "Real-time transcription"],
       status: "In Development"
     },
     {
-      id: "ie-300",
-      name: "VisionEdge ISP",
-      category: "Image Processing",
-      desc: "Low-power Image Signal Processor for industrial inspection cameras.",
-      specs: ["Global Shutter Support", "Edge Detection HW", "MIPI CSI-2"],
-      status: "Available IP"
+      id: "ie-vbt-1",
+      name: "VBT Device",
+      category: "Sports Technology",
+      desc: "Velocity-Based Training monitor delivering precision sports metrics entirely on-device. Tracks movement velocity, power output, and fatigue indicators for athletes and coaches in real-time.",
+      specs: ["Velocity tracking", "Power metrics", "Fatigue analysis"],
+      status: "Prototype"
+    },
+    {
+      id: "ie-sec-1",
+      name: "Violence Detection AI Chip",
+      category: "Security & Privacy",
+      desc: "Infrared-based anomaly detection ASIC for security applications. Privacy-first architecture processes thermal imaging on-device—no cloud storage, no video transmission, just real-time threat assessment.",
+      specs: ["Infrared processing", "Privacy-first", "No cloud storage"],
+      status: "Research Phase"
     }
   ];
 
@@ -52,7 +52,7 @@ export default function Products() {
           <div>
             <h1 className="text-[42px] md:text-[64px] font-display font-bold text-white mb-6 leading-tight">Products & IPs</h1>
             <p className="text-[#B3B3B3] text-[18px] max-w-2xl">
-              Hardened IP blocks and ready-to-integrate ASICs designed for cost-sensitive edge applications.
+              Application-specific edge intelligence and hardened IP blocks designed for absolute privacy, low latency, and efficient performance.
             </p>
           </div>
           <Button 
@@ -68,14 +68,19 @@ export default function Products() {
           <div className="lg:col-span-5">
             <div className="bg-black border border-[#2A2A2A] p-10 rounded-[4px] h-full flex flex-col justify-between">
               <div>
-                <span className="text-primary text-xs font-bold uppercase tracking-wider mb-4 block">Flagship Product</span>
-                <h2 className="text-[32px] font-display font-bold text-white mb-4">IntelliCore-X1 Dev Kit</h2>
+                <span className="text-primary text-xs font-bold uppercase tracking-wider mb-4 block">Featured Application</span>
+                <h2 className="text-[32px] font-display font-bold text-white mb-4">Sign Language Accelerator</h2>
                 <p className="text-[#B3B3B3] mb-8 leading-relaxed">
-                  Complete development board featuring our signature X1 accelerator. Ideal for prototyping smart IoT devices with minimal power overhead.
+                  Breaking down communication barriers with hardware-accelerated, real-time sign language translation running completely offline.
                 </p>
+                <div className="flex gap-3 flex-wrap mb-8">
+                  <span className="text-xs text-[#B3B3B3] border-r border-[#2A2A2A] pr-3">On-device recognition</span>
+                  <span className="text-xs text-[#B3B3B3] border-r border-[#2A2A2A] pr-3">Camera integration</span>
+                  <span className="text-xs text-[#B3B3B3]">Real-time transcription</span>
+                </div>
               </div>
               <Button className="w-fit border border-primary text-primary bg-transparent hover:bg-transparent hover:brightness-110 rounded-[4px]">
-                View Specifications
+                Read Whitepaper
               </Button>
             </div>
           </div>
