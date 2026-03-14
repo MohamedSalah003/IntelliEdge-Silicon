@@ -17,24 +17,32 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build static site
         run: npm run build:pages
 
       - name: SPA fallback
-        run: npm run postbuild:pages
+        run: |
+          if [ -f dist-gh-pages/index.html ]; then
+            cp dist-gh-pages/index.html dist-gh-pages/404.html
+          else
+            echo "Build output missing: dist-gh-pages/index.html"
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
